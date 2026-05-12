@@ -1,5 +1,9 @@
 context/
 .claude/
+milestone 1/
+milestone 2/
+README.txt
+*.zip
 
 # OS
 Thumbs.db
