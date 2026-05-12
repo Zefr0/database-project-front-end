@@ -1,0 +1,322 @@
+/* ============================================================
+   IVOR Paine Memorial Hospital — Main Stylesheet
+   ============================================================ */
+
+:root {
+    --navy:      #1a3a5c;
+    --navy-dark: #0f2440;
+    --navy-mid:  #264d7a;
+    --accent:    #2980b9;
+    --light-bg:  #f0f4f8;
+    --white:     #ffffff;
+    --border:    #d0dce8;
+    --text:      #2c3e50;
+    --muted:     #7f8c9a;
+    --success:   #27ae60;
+    --warning:   #e67e22;
+    --danger:    #c0392b;
+}
+
+/* ── Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--light-bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background: var(--navy) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.navbar-brand {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.navbar-brand .brand-sub {
+    font-size: .75rem;
+    font-weight: 400;
+    color: rgba(255,255,255,.7);
+    display: block;
+    line-height: 1;
+}
+.navbar .nav-link {
+    color: rgba(255,255,255,.85) !important;
+    font-size: .9rem;
+    font-weight: 500;
+    padding: .5rem .9rem !important;
+    border-radius: 4px;
+    transition: background .2s;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active { background: rgba(255,255,255,.15) !important; color: #fff !important; }
+.navbar .dropdown-menu {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,.1);
+    min-width: 230px;
+}
+.navbar .dropdown-item {
+    color: rgba(255,255,255,.85);
+    font-size: .88rem;
+    padding: .45rem 1rem;
+}
+.navbar .dropdown-item:hover { background: rgba(255,255,255,.15); color: #fff; }
+.navbar .dropdown-divider { border-color: rgba(255,255,255,.15); }
+.navbar-toggler { border-color: rgba(255,255,255,.4); }
+.navbar-toggler-icon { filter: invert(1); }
+
+/* ── Page Header Banner ── */
+.page-banner {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+    color: #fff;
+    padding: 28px 0 22px;
+    margin-bottom: 28px;
+    border-bottom: 3px solid var(--accent);
+}
+.page-banner h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+.page-banner p {
+    margin: 0;
+    color: rgba(255,255,255,.75);
+    font-size: .95rem;
+}
+.page-banner .badge-form {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: .72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* ── Cards ── */
+.card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.07);
+    background: var(--white);
+}
+.card-header {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 600;
+    font-size: .95rem;
+    border-radius: 9px 9px 0 0 !important;
+    padding: .75rem 1.25rem;
+    border-bottom: none;
+}
+.card-header .card-subtitle {
+    color: rgba(255,255,255,.7);
+    font-size: .8rem;
+    font-weight: 400;
+}
+.card-body { padding: 1.25rem; }
+
+/* ── Info Grid (label: value pairs) ── */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 0;
+}
+.info-item label {
+    display: block;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    margin-bottom: 3px;
+}
+.info-item span {
+    font-size: .97rem;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ── Tables ── */
+.table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .88rem;
+    margin: 0;
+}
+.data-table thead th {
+    background: var(--navy);
+    color: #fff;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    white-space: nowrap;
+    border: none;
+}
+.data-table tbody tr { border-bottom: 1px solid var(--border); }
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:nth-child(even) { background: #f6f9fc; }
+.data-table tbody tr:hover { background: #eaf2fb; }
+.data-table tbody td { padding: 9px 14px; vertical-align: middle; }
+.data-table .badge-pos {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: .72rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.data-table .ongoing { color: var(--success); font-weight: 600; }
+.data-table .ended   { color: var(--muted); }
+
+/* ── Search / Input Form ── */
+.search-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+}
+.search-card label {
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: block;
+}
+.search-card .form-control,
+.search-card .form-select {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .5rem .85rem;
+    font-size: .93rem;
+    color: var(--text);
+}
+.search-card .form-control:focus,
+.search-card .form-select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(41,128,185,.15);
+    outline: none;
+}
+.btn-search {
+    background: var(--navy);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: .52rem 1.4rem;
+    font-weight: 600;
+    font-size: .93rem;
+    cursor: pointer;
+    transition: background .2s;
+}
+.btn-search:hover { background: var(--navy-mid); color: #fff; }
+
+/* ── Dashboard ── */
+.dashboard-section h5 {
+    font-size: .8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    color: var(--muted);
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+}
+.dash-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    text-decoration: none;
+    color: var(--text);
+    transition: box-shadow .2s, border-color .2s, transform .15s;
+    height: 100%;
+}
+.dash-card:hover {
+    box-shadow: 0 4px 16px rgba(26,58,92,.14);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    color: var(--text);
+    text-decoration: none;
+}
+.dash-card .icon {
+    width: 42px; height: 42px;
+    background: var(--navy);
+    border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+.dash-card .icon.report { background: var(--accent); }
+.dash-card .title {
+    font-weight: 700;
+    font-size: .93rem;
+    margin-bottom: 3px;
+    color: var(--navy);
+}
+.dash-card .desc {
+    font-size: .8rem;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+/* ── No Results ── */
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--muted);
+    font-size: .95rem;
+}
+.no-results svg { display: block; margin: 0 auto 12px; opacity: .4; }
+
+/* ── Alert ── */
+.alert { border-radius: 8px; font-size: .9rem; padding: .8rem 1rem; }
+.alert-info    { background: #eaf4fb; border: 1px solid #b8daf0; color: #215f8a; }
+.alert-danger  { background: #fdecea; border: 1px solid #f5c6c3; color: #8b1a1a; }
+.alert-warning { background: #fff8e1; border: 1px solid #ffe082; color: #6d4c00; }
+
+/* ── Footer ── */
+footer {
+    background: var(--navy-dark);
+    color: rgba(255,255,255,.55);
+    text-align: center;
+    font-size: .8rem;
+    padding: 16px;
+    margin-top: 48px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .page-banner h1 { font-size: 1.25rem; }
+    .info-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+    .info-grid { grid-template-columns: 1fr; }
+}
